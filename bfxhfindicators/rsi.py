@@ -15,7 +15,7 @@ class RSI(Indicator):
       'args': args,
       'id': 'rsi',
       'name': 'RSI(%f)' % (period),
-      'seedPeriod': period
+      'seed_period': period
     })
 
   def reset(self):

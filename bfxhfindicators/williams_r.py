@@ -11,9 +11,9 @@ class WilliamsR(Indicator):
       'args': args,
       'id': 'wir',
       'name': 'WR(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

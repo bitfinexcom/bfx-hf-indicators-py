@@ -13,7 +13,7 @@ class DPO(Indicator):
       'args': args,
       'id': 'dpo',
       'name': 'DPO(%f)' % period,
-      'seedPeriod': period
+      'seed_period': period
     })
   
   def reset(self):

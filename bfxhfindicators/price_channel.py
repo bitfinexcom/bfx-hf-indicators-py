@@ -13,9 +13,9 @@ class PC(Indicator):
       'args': args,
       'id': 'pc',
       'name': 'PC(%f, %f)' % (period, offset),
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

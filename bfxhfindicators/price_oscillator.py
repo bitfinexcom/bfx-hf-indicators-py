@@ -13,7 +13,7 @@ class PPO(Indicator):
       'args': args,
       'id': 'ppo',
       'name': 'PPO(%f, %f)' % (shortPeriod, longPeriod),
-      'seedPeriod': longPeriod
+      'seed_period': longPeriod
     })
 
   def reset(self):

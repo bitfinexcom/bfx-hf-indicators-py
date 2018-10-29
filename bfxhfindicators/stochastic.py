@@ -14,9 +14,9 @@ class Stochastic(Indicator):
       'args': args,
       'id': 'stoch',
       'name': 'Stoch(%f)' % (period),
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

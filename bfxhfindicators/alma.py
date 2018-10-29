@@ -14,7 +14,7 @@ class ALMA(Indicator):
       'args': args,
       'id': 'alma',
       'name': 'ALMA(%f, %f, %f)' % (period, offset, sigma),
-      'seedPeriod': period
+      'seed_period': period
     })
 
   def reset(self):

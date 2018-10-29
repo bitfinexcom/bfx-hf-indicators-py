@@ -12,9 +12,9 @@ class ATR(Indicator):
       'args': args,
       'id': 'atr',
       'name': 'ATR(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

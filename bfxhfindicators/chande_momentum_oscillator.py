@@ -11,9 +11,9 @@ class ChandeMO(Indicator):
       'args': args,
       'id': 'chandemo',
       'name': 'ChandeMO(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

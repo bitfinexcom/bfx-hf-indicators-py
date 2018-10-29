@@ -14,9 +14,9 @@ class EOM(Indicator):
       'args': args,
       'id': 'eom',
       'name': 'EOM(%f, %f)' % (divisor, length),
-      'seedPeriod': length,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': length,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

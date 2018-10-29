@@ -14,9 +14,9 @@ class MassIndex(Indicator):
       'args': args,
       'id': 'mi',
       'name': 'Mass Index(%f)' % period,
-      'seedPeriod': 9 + period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': 9 + period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

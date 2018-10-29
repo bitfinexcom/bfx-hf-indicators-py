@@ -8,9 +8,9 @@ class OBV(Indicator):
       'args': args,
       'id': 'obv',
       'name': 'OBV',
-      'seedPeriod': 0,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': 0,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

@@ -12,9 +12,9 @@ class AccumulativeSwingIndex(Indicator):
       'args': args,
       'id': 'asi',
       'name': 'ASI(%f)' % limitMoveValue,
-      'seedPeriod': None,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': None,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def calcSI(candle, prevCandle, lmv):

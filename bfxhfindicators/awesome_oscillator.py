@@ -10,9 +10,9 @@ class AO(Indicator):
       'args': args,
       'id': 'ao',
       'name': 'AO',
-      'seedPeriod': None,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': None,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

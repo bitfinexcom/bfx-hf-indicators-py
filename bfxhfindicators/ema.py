@@ -8,7 +8,7 @@ class EMA(Indicator):
       'args': args,
       'id': 'ema',
       'name': 'EMA(%f)' % (period),
-      'seedPeriod': period
+      'seed_period': period
     })
 
     self._a = 2 / (period + 1)

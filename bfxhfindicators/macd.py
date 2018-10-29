@@ -14,7 +14,7 @@ class MACD(Indicator):
       'args': args,
       'id': 'macd',
       'name': 'MACD(%f, %f, %f)' % (fastMA, slowMA, signalMA),
-      'seedPeriod': max([fastMA, slowMA]) + signalMA
+      'seed_period': max([fastMA, slowMA]) + signalMA
     })
   
   def reset(self):

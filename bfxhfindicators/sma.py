@@ -11,7 +11,7 @@ class SMA(Indicator):
       'args': args,
       'id': 'sma',
       'name': 'SMA(%f)' % period,
-      'seedPeriod': period
+      'seed_period': period
     })
   
   def reset(self):

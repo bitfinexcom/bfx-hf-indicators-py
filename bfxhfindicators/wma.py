@@ -17,7 +17,7 @@ class WMA(Indicator):
       'args': args,
       'id': 'wma',
       'name': 'WMA(%f)' % period,
-      'seedPeriod': period
+      'seed_period': period
     })
   
   def reset(self):

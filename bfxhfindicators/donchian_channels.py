@@ -11,9 +11,9 @@ class DC(Indicator):
       'args': args,
       'id': 'dc',
       'name': 'DC(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

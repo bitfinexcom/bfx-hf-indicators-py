@@ -12,9 +12,9 @@ class EMAVolume(Indicator):
       'args': args,
       'id': 'emavol',
       'name': 'EMA Vol(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

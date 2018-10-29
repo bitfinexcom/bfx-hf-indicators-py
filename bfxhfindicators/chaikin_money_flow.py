@@ -12,9 +12,9 @@ class CMF(Indicator):
       'args': args,
       'id': 'cmf',
       'name': 'CMF(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

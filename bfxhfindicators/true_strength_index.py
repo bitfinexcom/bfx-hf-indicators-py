@@ -16,7 +16,7 @@ class TSI(Indicator):
       'args': args,
       'id': 'tsi',
       'name': 'TSI(%f, %f, %f)' % (long, short, signal),
-      'seedPeriod': max([long, short, signal])
+      'seed_period': max([long, short, signal])
     })
   
   def reset(self):

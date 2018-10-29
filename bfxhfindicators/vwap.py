@@ -11,9 +11,9 @@ class VWAP(Indicator):
       'args': args,
       'id': 'vwap',
       'name': 'VWAP',
-      'seedPeriod': 0,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': 0,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

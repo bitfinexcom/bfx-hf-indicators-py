@@ -12,9 +12,9 @@ class VO(Indicator):
       'args': args,
       'id': 'vo',
       'name': 'VO(%f, %f)' % (shortPeriod, longPeriod),
-      'seedPeriod': longPeriod,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': longPeriod,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

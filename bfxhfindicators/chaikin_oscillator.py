@@ -15,9 +15,9 @@ class ChaikinOsc(Indicator):
       'args': args,
       'id': 'chaikinosc',
       'name': 'ChaikinOsc(%f, %f)' % (short, long),
-      'seedPeriod': max([short, long]),
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': max([short, long]),
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def reset(self):

@@ -14,7 +14,7 @@ class Acceleration(Indicator):
       'args': args,
       'id': 'acc',
       'name': 'Acceleration(%f)' % (period),
-      'seedPeriod': period
+      'seed_period': period
     })
 
   def reset(self):

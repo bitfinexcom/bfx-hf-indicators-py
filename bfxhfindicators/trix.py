@@ -14,7 +14,7 @@ class TRIX(Indicator):
       'args': args,
       'id': 'trix',
       'name': 'TRIX(%f)' % (period),
-      'seedPeriod': (period * 3) + 1
+      'seed_period': (period * 3) + 1
     })
   
   def reset(self):

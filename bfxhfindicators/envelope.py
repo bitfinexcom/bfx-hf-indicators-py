@@ -13,7 +13,7 @@ class Envelope(Indicator):
       'args': args,
       'id': 'env',
       'name': 'Env(%f, %f)' % (length, percent),
-      'seedPeriod': length,
+      'seed_period': length,
     })
   
   def reset(self):

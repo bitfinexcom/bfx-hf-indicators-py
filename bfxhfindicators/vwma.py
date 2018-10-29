@@ -11,9 +11,9 @@ class VWMA(Indicator):
       'args': args,
       'id': 'vwma',
       'name': 'VWMA(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

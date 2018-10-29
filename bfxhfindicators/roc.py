@@ -8,7 +8,7 @@ class ROC(Indicator):
       'args': args,
       'id': 'roc',
       'name': 'ROC(%f)' % (period),
-      'seedPeriod': period
+      'seed_period': period
     })
 
     self._p = period

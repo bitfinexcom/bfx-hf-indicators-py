@@ -15,7 +15,7 @@ class CoppockCurve(Indicator):
       'args': args,
       'id': 'coppockcurve',
       'name': 'Coppock Curve(%f, %f, %f)' % (wmaLength, longROCLength, shortROCLength),
-      'seedPeriod': max([longROCLength + wmaLength, shortROCLength + wmaLength])
+      'seed_period': max([longROCLength + wmaLength, shortROCLength + wmaLength])
     })
   
   def reset(self):

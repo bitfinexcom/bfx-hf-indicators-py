@@ -17,7 +17,7 @@ class StochasticRSI(Indicator):
       'args': args,
       'id': 'stochrsi',
       'name': 'Stoch RSI(%f, %f, %f, %f)' % (lengthRSI, lengthStochastic, smoothStoch, smoothSignal),
-      'seedPeriod': lengthRSI + lengthStochastic + smoothStoch
+      'seed_period': lengthRSI + lengthStochastic + smoothStoch
     })
   
   def reset(self):

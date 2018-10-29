@@ -13,9 +13,9 @@ class RVGI(Indicator):
       'args': args,
       'id': 'rvgi',
       'name': 'RVGI(%f)' % period,
-      'seedPeriod': period,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': period,
+      'data_type': 'candle',
+      'data_key': '*'
     })
   
   def reset(self):

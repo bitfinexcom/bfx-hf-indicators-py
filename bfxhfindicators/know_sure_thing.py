@@ -24,7 +24,7 @@ class KST(Indicator):
       'name': 'KST(%f, %f, %f, %f, %f, %f, %f, %f, %f)' % (
         rocA, rocB, rocC, rocD, smaA, smaB, smaC, smaD, smaSignal
       ),
-      'seedPeriod': max([
+      'seed_period': max([
         rocA + smaA,
         rocB + smaB,
         rocC + smaC,

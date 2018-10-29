@@ -12,7 +12,7 @@ class StdDeviation(Indicator):
       'args': args,
       'id': 'stddev',
       'name': 'STDDEV(%f)' % period,
-      'seedPeriod': period
+      'seed_period': period
     })
 
   def reset(self):

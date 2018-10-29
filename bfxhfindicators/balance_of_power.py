@@ -6,9 +6,9 @@ class BOP(Indicator):
       'args': args,
       'id': 'bop',
       'name': 'Balance of Power',
-      'seedPeriod': 0,
-      'dataType': 'candle',
-      'dataKey': '*'
+      'seed_period': 0,
+      'data_type': 'candle',
+      'data_key': '*'
     })
 
   def update(self, c):
