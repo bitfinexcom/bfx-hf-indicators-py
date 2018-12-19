@@ -18,13 +18,13 @@ class Indicator:
 
   def v(self):
     if len(self._values) == 0:
-      return 0
+      return None
 
     return self._values[-1]
 
   def prev(self, n = 1):
-    if len(self._values) < n:
-      return 0
+    if len(self._values) <= n:
+      return None
 
     return self._values[-1 - n]
 
