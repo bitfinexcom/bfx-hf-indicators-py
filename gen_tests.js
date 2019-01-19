@@ -3,9 +3,8 @@ const indicators = require('bfx-hf-indicators')
 
 const SAMPLE_SIZE = 20
 const sampleData = JSON.parse(fs.readFileSync('./tests/btc_candle_data.json'))
-  .map(([mts, open, close, high, low, volume, symbol]) => 
-    ({mts, open, close, high, low, volume, symbol: 'tBTCUSD', tf: '1min'}))
-  .slice(0, SAMPLE_SIZE)
+  .map(([mts, open, close, high, low, vol, symbol]) => 
+    ({mts, open, close, high, low, vol, symbol: 'tBTCUSD', tf: '1min'}))
 
 function main() {
   const toSkip = ['Indicator', 'Aroon', 'ADX']
@@ -19,7 +18,9 @@ function createTestCase(name) {
   const initArgs = indicator.args.map((arg) => arg.default)
   const i = new indicator(initArgs)
   const indicatorName = i.constructor.name
-  const values = sampleData.map(row => i.add(i.getDataType() === 'candle' ? row : row.volume))
+  const values = sampleData
+    .slice(0, i.getSeedPeriod() + SAMPLE_SIZE)
+    .map(row => i.add(i.getDataType() === 'candle' ? row : row.close))
 
   const body = `
 import unittest
@@ -48,7 +49,7 @@ class ${indicatorName}Test(unittest.TestCase):
   def test_add(self):
     indicator = ${indicatorName}([${initArgs.join(', ')}])
     for i in range(len(expected)):
-      indicator.add(${i.getDataType() === 'candle' ? 'candles[i]' : `candles[i]['vol']`})
+      indicator.add(${i.getDataType() === 'candle' ? 'candles[i]' : `candles[i]['close']`})
       self.assertEqual(indicator.v(), expected[i], 'candles[%d]' % i)
 
 

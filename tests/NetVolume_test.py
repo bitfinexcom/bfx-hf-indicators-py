@@ -20,26 +20,26 @@ with open('tests/btc_candle_data.json', 'r') as f:
   }, btcCandleData))
 
 expected = [
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None,
-  None
+  38.58293517,
+  -327.53682997,
+  -42.38708092,
+  -46.31485018,
+  1.01328572,
+  0.01,
+  -1.58844826,
+  -0.49441145,
+  -1.01979856,
+  1.54670225,
+  -1.60242713,
+  4.82548411,
+  -0.79709156,
+  7.05706257,
+  -2.37395717,
+  13.61024762,
+  -2.03075746,
+  2.11298336,
+  -8.45373801,
+  0.64210676
 ]
 
 class NetVolumeTest(unittest.TestCase):

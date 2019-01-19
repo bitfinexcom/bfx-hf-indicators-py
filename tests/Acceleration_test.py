@@ -39,14 +39,24 @@ expected = [
   None,
   None,
   None,
-  None
+  None,
+  -0.8791010202005427,
+  -1.0432900076303624,
+  -0.4570648686801929,
+  -0.30209648116482285,
+  -0.16950446224787277,
+  -0.23322686349713379,
+  -0.16328308230286104,
+  -0.14928338155296697,
+  0.0015530110374314,
+  -0.031096662638418565
 ]
 
 class AccelerationTest(unittest.TestCase):
   def test_add(self):
     indicator = Acceleration([10])
     for i in range(len(expected)):
-      indicator.add(candles[i]['vol'])
+      indicator.add(candles[i]['close'])
       self.assertEqual(indicator.v(), expected[i], 'candles[%d]' % i)
 
 
