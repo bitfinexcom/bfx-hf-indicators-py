@@ -4,6 +4,7 @@ import sys
 import json
 
 sys.path.append('../')
+from tests.util import assertFloatEqual
 from bfxhfindicators import PVT
 
 with open('tests/btc_candle_data.json', 'r') as f:
@@ -47,8 +48,7 @@ class PVTTest(unittest.TestCase):
     indicator = PVT([])
     for i in range(len(expected)):
       indicator.add(candles[i])
-      self.assertEqual(indicator.v(), expected[i], 'candles[%d]' % i)
-
+      assertFloatEqual(self, indicator.v(), expected[i], 'candles[%d]' % i)
 
 if __name__ == '__main__':
     unittest.main()

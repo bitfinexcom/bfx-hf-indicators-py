@@ -4,6 +4,7 @@ import sys
 import json
 
 sys.path.append('../')
+from tests.util import assertFloatEqual
 from bfxhfindicators import TSI
 
 with open('tests/btc_candle_data.json', 'r') as f:
@@ -204,8 +205,7 @@ class TSITest(unittest.TestCase):
     indicator = TSI([25, 13, 13])
     for i in range(len(expected)):
       indicator.add(candles[i]['close'])
-      self.assertEqual(indicator.v(), expected[i], 'candles[%d]' % i)
-
+      assertFloatEqual(self, indicator.v(), expected[i], 'candles[%d]' % i)
 
 if __name__ == '__main__':
     unittest.main()
