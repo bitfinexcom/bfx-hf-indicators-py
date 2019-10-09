@@ -84,7 +84,7 @@ v = rsi.v() # query current RSI(14) value
 
 ## Docs
 
-* <b>[Usages](docs/usages.md)</b> - Documentation
+* <b>[Usages](docs/usage.md)</b> - Documentation
 
 ## Contributing
 
