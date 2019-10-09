@@ -1,0 +1,5 @@
+1.0.0
+
+- Adds setup.py file for pip installing
+- Rewords README to fit new bfx template
+- Creates docs/usage.md
