@@ -56,7 +56,7 @@ git clone https://github.com/bitfinexcom/bfx-hf-indicators-py.git
 cd bfx-hf-indicators-py
 ```
 
-Or via pip3:
+Or via pip/pip3:
 ```sh
 pip3 install -r requirements.txt
 python3 setup.py install
