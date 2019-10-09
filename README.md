@@ -1,43 +1,10 @@
-## HF Indicators: `bfxhfindicators`
+# Bitfinex Indicator Library for Python
+
+[![Build Status](https://travis-ci.org/bitfinexcom/bfx-hf-indicators-py.svg?branch=master)](https://travis-ci.org/bitfinexcom/bfx-hf-indicators-py)
 
 This repo contains a collection of trading indicators implemented to support incremental updates, both from trade and candle data (depending on the indicator). All indicators provide the same set of base methods:
 
-* `reset()` - clears indicator values
-* `update(value or candle)` - updates the current indicator value with a different data point
-* `add(value or candle)` - adds a new data point/value to the indicator
-* `l()` - returns the number of available indicator values
-* `v()` - returns the current indicator value
-* `prev(n = 1)` - returns the nth previous indicator value
-
-#### Indicator Seeding
-
-All indicators have a seed period which should be respected before valid data can be obtained, which can be read via `i.get_seed_period()`
-
-#### Indicator Data Types
-
-To query which type of data an indicator requires, `get_data_type()` and `get_data_key()` are available. The data type can be either `'trade'`, `'candle'`, or `'*'` to signal that both are acceptable. For candle data, the data key will be either `'open`', `'high'`, `'low'`, or `'close'`.
-
-## Example Usage
-
-```js
-from bfxhfindicators import RSI
-
-rsi = RSI([14])
-
-rsi.add(14000)
-rsi.add(14010)
-rsi.add(14025)
-rsi.add(14035)
-// ...
-// 8 more data points
-// ...
-rsi.add(13998)
-rsi.add(13952)
-
-v = rsi.v() // query current RSI(14) value
-```
-
-## Available Indicators
+## Features
 * Absolute True Range
 * Acceleration
 * Accumulation/Distribution
@@ -80,3 +47,49 @@ v = rsi.v() // query current RSI(14) value
 * Volume Weighted Moving Average
 * Weighted Moving Average
 * Williams %R
+
+## Installation
+
+Clone package into PYTHONPATH:
+```sh
+git clone https://github.com/bitfinexcom/bfx-hf-indicators-py.git
+cd bfx-hf-indicators-py
+```
+
+Or via pip3:
+```sh
+pip3 install -r requirements.txt
+python3 setup.py install
+```
+
+## Quickstart
+
+```python
+from bfxhfindicators import RSI
+
+rsi = RSI([14])
+
+rsi.add(14000)
+rsi.add(14010)
+rsi.add(14025)
+rsi.add(14035)
+# ...
+# 8 more data points
+# ...
+rsi.add(13998)
+rsi.add(13952)
+
+v = rsi.v() # query current RSI(14) value
+```
+
+## Docs
+
+* <b>[Usages](docs/usages.md)</b> - Documentation
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
