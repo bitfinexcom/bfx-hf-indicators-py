@@ -14,14 +14,15 @@ class AccumulationDistribution(Indicator):
 
     return moneyFlowMult * vol
   
-  def __init__(self, args = []):
+  def __init__(self, cache_size=None):
     super().__init__({
-      'args': args,
+      'args': [cache_size],
       'id': 'ad',
       'name': 'Accum/Dist',
       'seed_period': 0,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def update(self, candle):

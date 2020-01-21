@@ -1,17 +1,16 @@
 from bfxhfindicators.indicator import Indicator
 
 class Momentum(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._p = period
     self._buffer = []
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'mo',
       'name': 'MO(%f)' % period,
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
   def reset(self):

@@ -3,17 +3,16 @@ from bfxhfindicators.sma import SMA
 from math import isfinite
 
 class Envelope(Indicator):
-  def __init__(self, args = []):
-    [ length, percent ] = args
-
-    self._sma = SMA([length])
+  def __init__(self, length, percent, cache_size=None):
+    self._sma = SMA(length, cache_size)
     self._p = percent / 100
 
     super().__init__({
-      'args': args,
+      'args': [length, percent, cache_size],
       'id': 'env',
       'name': 'Env(%f, %f)' % (length, percent),
       'seed_period': length,
+      'cache_size': cache_size
     })
   
   def reset(self):

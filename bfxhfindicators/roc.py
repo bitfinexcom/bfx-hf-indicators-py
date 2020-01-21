@@ -1,14 +1,13 @@
 from bfxhfindicators.indicator import Indicator
 
 class ROC(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'roc',
       'name': 'ROC(%f)' % (period),
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
     self._p = period

@@ -1,7 +1,10 @@
 from bfxhfindicators.indicator import Indicator
 
 class NetVolume(Indicator):
-  def __init__(self, args = []):
+  def __init__(self, args=None):
+    if not args:
+        args = []
+
     super().__init__({
       'args': args,
       'id': 'nv',

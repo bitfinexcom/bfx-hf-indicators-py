@@ -3,18 +3,17 @@ from bfxhfindicators.ema import EMA
 from math import isfinite
 
 class MACD(Indicator):
-  def __init__(self, args = []):
-    [ fastMA, slowMA, signalMA ] = args
-
+  def __init__(self, fastMA, slowMA, signalMA, cache_size=None):
     self._slowEMA = EMA([slowMA])
     self._fastEMA = EMA([fastMA])
     self._signalEMA = EMA([signalMA])
 
     super().__init__({
-      'args': args,
+      'args': [fastMA, slowMA, signalMA, cache_size],
       'id': 'macd',
       'name': 'MACD(%f, %f, %f)' % (fastMA, slowMA, signalMA),
-      'seed_period': max([fastMA, slowMA]) + signalMA
+      'seed_period': max([fastMA, slowMA]) + signalMA,
+      'cache_size': cache_size
     })
   
   def reset(self):

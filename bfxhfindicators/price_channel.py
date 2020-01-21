@@ -1,21 +1,20 @@
 from bfxhfindicators.indicator import Indicator
 
 class PC(Indicator):
-  def __init__(self, args = []):
-    [ period, offset ] = args
-
+  def __init__(self, period, offset, cache_size=None):
     self._p = period
     self._offset = offset
     self._l = period + offset
     self._buffer = []
 
     super().__init__({
-      'args': args,
+      'args': [period, offset, cache_size],
       'id': 'pc',
       'name': 'PC(%f, %f)' % (period, offset),
       'seed_period': period,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
   
   def reset(self):

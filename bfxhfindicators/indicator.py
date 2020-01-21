@@ -1,17 +1,26 @@
 from math import isfinite
+from collections import deque
+
 
 class Indicator:
-  def __init__(self, params = {}):
+  def __init__(self, params=None):
+    if not params:
+        raise
+
     self._name = params['name']
     self._seed_period = params['seed_period']
     self._id = params['id']
     self._args = params['args']
     self._data_type = params.get('data_type') or '*'
     self._data_key = params.get('data_key') or 'close'
+    self._cache_size = params.get('cache_size')
     self.reset()
 
   def reset(self):
-    self._values = []
+    if self._cache_size:
+        self._values = deque(maxlen=self._cache_size)
+    else:
+        self._values = []
 
   def l(self):
     return len(self._values)

@@ -2,16 +2,14 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.ema import EMA
 
 class MassIndex(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._smoothing = period
-    self._singleEMA = EMA([9])
-    self._doubleEMA = EMA([9])
+    self._singleEMA = EMA(9, cache_size)
+    self._doubleEMA = EMA(9, cache_size)
     self._buffer = []
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'mi',
       'name': 'Mass Index(%f)' % period,
       'seed_period': 9 + period,

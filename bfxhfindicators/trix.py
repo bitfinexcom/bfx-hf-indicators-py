@@ -3,18 +3,17 @@ from bfxhfindicators.ema import EMA
 from math import isfinite
 
 class TRIX(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
-    self._emaFirst = EMA([period])
-    self._emaSecond = EMA([period])
-    self._emaThird = EMA([period])
+  def __init__(self, period, cache_size=None):
+    self._emaFirst = EMA(period, cache_size)
+    self._emaSecond = EMA(period, cache_size)
+    self._emaThird = EMA(period, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'trix',
       'name': 'TRIX(%f)' % (period),
-      'seed_period': (period * 3) + 1
+      'seed_period': (period * 3) + 1,
+      'cache_size': cache_size
     })
   
   def reset(self):

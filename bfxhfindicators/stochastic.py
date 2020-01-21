@@ -2,16 +2,14 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.sma import SMA
 
 class Stochastic(Indicator):
-  def __init__(self, args = []):
-    [ period, smoothK, smoothD ] = args
-
+  def __init__(self, period, smoothK, smoothD, cache_size=None):
     self._p = period
     self._buffer = []
-    self._kSMA = SMA([smoothK])
-    self._dSMA = SMA([smoothD])
+    self._kSMA = SMA(smoothK, cache_size)
+    self._dSMA = SMA(smoothD, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [period, smoothK, smoothD, cache_size],
       'id': 'stoch',
       'name': 'Stoch(%f)' % (period),
       'seed_period': period,

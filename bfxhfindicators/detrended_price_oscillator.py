@@ -3,17 +3,16 @@ from bfxhfindicators.sma import SMA
 from math import floor
 
 class DPO(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._pricePeriod = floor(period / 2) + 1
-    self._sma = SMA([period])
+    self._sma = SMA(period, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'dpo',
       'name': 'DPO(%f)' % period,
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
   
   def reset(self):

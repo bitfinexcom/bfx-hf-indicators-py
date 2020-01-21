@@ -4,20 +4,19 @@ from bfxhfindicators.accumulation_distribution import AccumulationDistribution
 from math import isfinite
 
 class ChaikinOsc(Indicator):
-  def __init__(self, args = []):
-    [ short, long ] = args
-
-    self._shortEMA = EMA([short])
-    self._longEMA = EMA([long])
+  def __init__(self, short, long, cache_size=None):
+    self._shortEMA = EMA(short, cache_size)
+    self._longEMA = EMA(long, cache_size)
     self._adl = AccumulationDistribution()
 
     super().__init__({
-      'args': args,
+      'args': [short, long, cache_size],
       'id': 'chaikinosc',
       'name': 'ChaikinOsc(%f, %f)' % (short, long),
       'seed_period': max([short, long]),
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def reset(self):

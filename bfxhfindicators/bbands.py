@@ -3,16 +3,14 @@ from bfxhfindicators.sma import SMA
 from bfxhfindicators.stddev import StdDeviation
 
 class BollingerBands(Indicator):
-  def __init__(self, args = []):
-    [ period, mul ] = args
-
+  def __init__(self, period, mul, cache_size=None):
     self._p = period
     self._m = mul
-    self._sma = SMA([period])
+    self._sma = SMA(period, cache_size)
     self._stddev = StdDeviation([period])
 
     super().__init__({
-      'args': args,
+      'args': [period, mul, cache_size],
       'id': 'bbands',
       'name': 'BBANDS(%f, %f)' % (period, mul),
       'seed_period': period

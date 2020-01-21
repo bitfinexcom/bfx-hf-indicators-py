@@ -4,20 +4,19 @@ from bfxhfindicators.rsi import RSI
 from math import isfinite
 
 class StochasticRSI(Indicator):
-  def __init__(self, args = []):
-    [ lengthRSI, lengthStochastic, smoothStoch, smoothSignal ] = args
-
+  def __init__(self, lengthRSI, lengthStochastic, smoothStoch, smoothSignal, cache_size=None):
     self._buffer = []
     self._l = lengthStochastic
-    self._rsi = RSI([lengthRSI])
-    self._smaStoch = SMA([smoothStoch])
-    self._smaSignal = SMA([smoothSignal])
+    self._rsi = RSI(lengthRSI, cache_size)
+    self._smaStoch = SMA(smoothStoch, cache_size)
+    self._smaSignal = SMA(smoothSignal, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [lengthRSI, lengthStochastic, smoothStoch, smoothSignal, cache_size],
       'id': 'stochrsi',
       'name': 'Stoch RSI(%f, %f, %f, %f)' % (lengthRSI, lengthStochastic, smoothStoch, smoothSignal),
-      'seed_period': lengthRSI + lengthStochastic + smoothStoch
+      'seed_period': lengthRSI + lengthStochastic + smoothStoch,
+      'cache_size': cache_size
     })
   
   def reset(self):

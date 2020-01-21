@@ -2,19 +2,18 @@ from bfxhfindicators.indicator import Indicator
 from math import isfinite, exp, pow
 
 class ALMA(Indicator):
-  def __init__(self, args = []):
-    [ period, offset, sigma ] = args
-
+  def __init__(self, period, offset, sigma, cache_size=None):
     self._p = period
     self._offset = offset
     self._s = sigma
     self._buffer = []
  
     super().__init__({
-      'args': args,
+      'args': [period, offset, sigma, cache_size],
       'id': 'alma',
       'name': 'ALMA(%f, %f, %f)' % (period, offset, sigma),
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
   def reset(self):

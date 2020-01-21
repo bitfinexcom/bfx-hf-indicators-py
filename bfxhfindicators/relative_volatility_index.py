@@ -4,19 +4,18 @@ from bfxhfindicators.stddev import StdDeviation
 from math import isfinite
 
 class RVI(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
-    self._stddev = StdDeviation([period])
-    self._uEMA = EMA([period])
-    self._dEMA = EMA([period])
+  def __init__(self, period, cache_size=None):
+    self._stddev = StdDeviation(period, cache_size)
+    self._uEMA = EMA(period, cache_size)
+    self._dEMA = EMA(period, cache_size)
     self._prevInputValue = None
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'rvi',
       'name': 'RVI(%f)' % period,
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
   def reset(self):
