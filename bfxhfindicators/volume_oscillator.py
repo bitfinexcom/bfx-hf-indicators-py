@@ -2,19 +2,18 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.ema import EMA
 
 class VO(Indicator):
-  def __init__(self, args = []):
-    [ shortPeriod, longPeriod ] = args
-
-    self._shortEMA = EMA([shortPeriod])
-    self._longEMA = EMA([longPeriod])
+  def __init__(self, shortPeriod, longPeriod, cache_size=None):
+    self._shortEMA = EMA(shortPeriod, cache_size)
+    self._longEMA = EMA(longPeriod, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [shortPeriod, longPeriod, cache_size],
       'id': 'vo',
       'name': 'VO(%f, %f)' % (shortPeriod, longPeriod),
       'seed_period': longPeriod,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
   
   def reset(self):

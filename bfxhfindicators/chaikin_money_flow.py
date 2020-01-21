@@ -1,20 +1,19 @@
 from bfxhfindicators.indicator import Indicator
 
 class CMF(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._p = period
     self._bufferVol = []
     self._bufferMFV = []
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'cmf',
       'name': 'CMF(%f)' % period,
       'seed_period': period,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def reset(self):

@@ -2,17 +2,18 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.sma import SMA
 
 class AO(Indicator):
-  def __init__(self, args = []):
-    self._smaShort = SMA([5])
-    self._smaLong = SMA([34])
+  def __init__(self, period, cache_size=None):
+    self._smaShort = SMA(period, cache_size)
+    self._smaLong = SMA(period, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'ao',
       'name': 'AO',
       'seed_period': None,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def reset(self):

@@ -1,14 +1,13 @@
 from bfxhfindicators.indicator import Indicator
 
 class EMA(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'ema',
       'name': 'EMA(%f)' % (period),
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
     self._a = 2 / (period + 1)

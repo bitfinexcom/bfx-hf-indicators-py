@@ -21,7 +21,7 @@ candles = [
 
 class ASITest(unittest.TestCase):
   def test_is_calculated_properly(self):
-    asi = AccumulativeSwingIndex([6400])
+    asi = AccumulativeSwingIndex(limitMoveValue=6400)
     asi.add(candles[0])
     asi.add(candles[1])
     self.assertEqual(round(asi.v(), 13), -0.1190821779318)

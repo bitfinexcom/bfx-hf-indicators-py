@@ -4,18 +4,17 @@ from bfxhfindicators.roc import ROC
 from math import isfinite
 
 class CoppockCurve(Indicator):
-  def __init__(self, args = []):
-    [ wmaLength, longROCLength, shortROCLength ] = args
-
+  def __init__(self, wmaLength, longROCLength, shortROCLength, cache_size=None):
     self._wma = WMA([wmaLength])
     self._shortROC = ROC([shortROCLength])
     self._longROC = ROC([longROCLength])
 
     super().__init__({
-      'args': args,
+      'args': [wmaLength, longROCLength, shortROCLength, cache_size],
       'id': 'coppockcurve',
       'name': 'Coppock Curve(%f, %f, %f)' % (wmaLength, longROCLength, shortROCLength),
-      'seed_period': max([longROCLength + wmaLength, shortROCLength + wmaLength])
+      'seed_period': max([longROCLength + wmaLength, shortROCLength + wmaLength]),
+      'cache_size': cache_size
     })
   
   def reset(self):

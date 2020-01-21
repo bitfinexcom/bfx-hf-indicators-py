@@ -3,19 +3,18 @@ from bfxhfindicators.ema import EMA
 from math import isfinite
 
 class RSI(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._p = period
-    self._uEMA = EMA([period])
-    self._dEMA = EMA([period])
+    self._uEMA = EMA(period, cache_size)
+    self._dEMA = EMA(period, cache_size)
     self._prevInputValue = None
  
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'rsi',
       'name': 'RSI(%f)' % (period),
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
 
   def reset(self):

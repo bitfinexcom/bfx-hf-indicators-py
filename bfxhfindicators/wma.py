@@ -1,9 +1,7 @@
 from bfxhfindicators.indicator import Indicator
 
 class WMA(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     d = 0
 
     for i in range(period):
@@ -14,10 +12,11 @@ class WMA(Indicator):
     self._buffer = []
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'wma',
       'name': 'WMA(%f)' % period,
-      'seed_period': period
+      'seed_period': period,
+      'cache_size': cache_size
     })
   
   def reset(self):

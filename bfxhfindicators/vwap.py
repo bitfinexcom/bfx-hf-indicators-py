@@ -1,7 +1,10 @@
 from bfxhfindicators.indicator import Indicator
 
 class VWAP(Indicator):
-  def __init__(self, args = []):
+  def __init__(self, args=None):
+    if not args:
+        args = []
+
     self._totalNum = 0
     self._totalDen = 0
     self._lastNum = 0

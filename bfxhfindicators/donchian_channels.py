@@ -1,19 +1,18 @@
 from bfxhfindicators.indicator import Indicator
 
 class DC(Indicator):
-  def __init__(self, args = []):
-    [ period ] = args
-
+  def __init__(self, period, cache_size=None):
     self._p = period
     self._buffer = []
 
     super().__init__({
-      'args': args,
+      'args': [period, cache_size],
       'id': 'dc',
       'name': 'DC(%f)' % period,
       'seed_period': period,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def reset(self):

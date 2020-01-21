@@ -3,20 +3,19 @@ from bfxhfindicators.sma import SMA
 from math import isfinite
 
 class EOM(Indicator):
-  def __init__(self, args = []):
-    [ divisor, length ] = args
-
+  def __init__(self, divisor, length, cache_size=None):
     self._d = divisor
-    self._sma = SMA([length])
+    self._sma = SMA(length, cache_size)
     self._lastCandle = None
 
     super().__init__({
-      'args': args,
+      'args': [divisor, length, cache_size],
       'id': 'eom',
       'name': 'EOM(%f, %f)' % (divisor, length),
       'seed_period': length,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def reset(self):

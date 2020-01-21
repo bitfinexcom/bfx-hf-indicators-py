@@ -3,23 +3,32 @@ from bfxhfindicators.roc import ROC
 from bfxhfindicators.sma import SMA
 
 class KST(Indicator):
-  def __init__(self, args = []):
-    [ rocA, rocB, rocC, rocD, smaA, smaB, smaC, smaD, smaSignal ] = args
+  def __init__(self,
+               rocA,
+               rocB,
+               rocC,
+               rocD,
+               smaA,
+               smaB,
+               smaC,
+               smaD,
+               smaSignal,
+               cache_size=None):
 
-    self._rocA = ROC([rocA])
-    self._rocB = ROC([rocB])
-    self._rocC = ROC([rocC])
-    self._rocD = ROC([rocD])
+    self._rocA = ROC(rocA, cache_size)
+    self._rocB = ROC(rocB, cache_size)
+    self._rocC = ROC(rocC, cache_size)
+    self._rocD = ROC(rocD, cache_size)
 
-    self._smaA = SMA([smaA])
-    self._smaB = SMA([smaB])
-    self._smaC = SMA([smaC])
-    self._smaD = SMA([smaD])
+    self._smaA = SMA(smaA, cache_size)
+    self._smaB = SMA(smaB, cache_size)
+    self._smaC = SMA(smaC, cache_size)
+    self._smaD = SMA(smaD, cache_size)
 
     self._smaSignal = SMA([smaSignal])
 
     super().__init__({
-      'args': args,
+      'args': [rocA, rocB, rocC, rocD, smaA, smaB, smaC, smaD, smaSignal, cache_size],
       'id': 'kst',
       'name': 'KST(%f, %f, %f, %f, %f, %f, %f, %f, %f)' % (
         rocA, rocB, rocC, rocD, smaA, smaB, smaC, smaD, smaSignal
@@ -30,7 +39,8 @@ class KST(Indicator):
         rocC + smaC,
         rocD + smaD,
         smaSignal
-      ])
+      ]),
+      'cache_size': cache_size
     })
   
   def reset(self):

@@ -2,18 +2,18 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.ema import EMA
 
 class PPO(Indicator):
-  def __init__(self, args = []):
-    [ shortPeriod, longPeriod ] = args
+  def __init__(self, shortPeriod, longPeriod, cache_size=None):
 
-    self._shortEMA = EMA([shortPeriod])
-    self._longEMA = EMA([longPeriod])
-    self._signalEMA = EMA([9])
+    self._shortEMA = EMA(shortPeriod, cache_size)
+    self._longEMA = EMA(longPeriod, cache_size)
+    self._signalEMA = EMA(9, cache_size)
 
     super().__init__({
-      'args': args,
+      'args': [shortPeriod, longPeriod, cache_size],
       'id': 'ppo',
       'name': 'PPO(%f, %f)' % (shortPeriod, longPeriod),
-      'seed_period': longPeriod
+      'seed_period': longPeriod,
+      'cache_size': cache_size
     })
 
   def reset(self):

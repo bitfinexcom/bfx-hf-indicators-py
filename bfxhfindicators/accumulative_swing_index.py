@@ -2,19 +2,18 @@ from bfxhfindicators.indicator import Indicator
 from math import isfinite, exp, pow
 
 class AccumulativeSwingIndex(Indicator):
-  def __init__(self, args = []):
-    [ limitMoveValue ] = args
-
+  def __init__(self, limitMoveValue, cache_size=None):
     self._lmv = limitMoveValue
     self._prevCandle = None
  
     super().__init__({
-      'args': args,
+      'args': [limitMoveValue, cache_size],
       'id': 'asi',
       'name': 'ASI(%f)' % limitMoveValue,
       'seed_period': None,
       'data_type': 'candle',
-      'data_key': '*'
+      'data_key': '*',
+      'cache_size': cache_size
     })
 
   def calcSI(candle, prevCandle, lmv):

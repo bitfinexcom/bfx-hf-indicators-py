@@ -1,5 +1,6 @@
 # Usages
 
+* `cache_size` - indicate the fixed size of internal deque
 * `reset()` - clears indicator values
 * `update(value or candle)` - updates the current indicator value with a different data point
 * `add(value or candle)` - adds a new data point/value to the indicator

@@ -62,12 +62,16 @@ pip3 install -r requirements.txt
 python3 setup.py install
 ```
 
+```sh
+pip3 install git+https://github.com/bitfinexcom/bfx-hf-indicators-py.git@master
+```
+
 ## Quickstart
 
 ```python
 from bfxhfindicators import RSI
 
-rsi = RSI([14])
+rsi = RSI(14)
 
 rsi.add(14000)
 rsi.add(14010)

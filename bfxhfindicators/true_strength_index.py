@@ -2,21 +2,20 @@ from bfxhfindicators.indicator import Indicator
 from bfxhfindicators.ema import EMA
 
 class TSI(Indicator):
-  def __init__(self, args = []):
-    [ long, short, signal ] = args
-
-    self._pcEMA = EMA([long])
-    self._pc2EMA = EMA([short])
-    self._apcEMA = EMA([long])
-    self._apc2EMA = EMA([short])
-    self._sEMA = EMA([signal])
+  def __init__(self, long, short, signal, cache_size=None):
+    self._pcEMA = EMA(long, cache_size)
+    self._pc2EMA = EMA(short, cache_size)
+    self._apcEMA = EMA(long, cache_size)
+    self._apc2EMA = EMA(short, cache_size)
+    self._sEMA = EMA(signal, cache_size)
     self._lastPrice = None
 
     super().__init__({
-      'args': args,
+      'args': [short, signal, cache_size],
       'id': 'tsi',
       'name': 'TSI(%f, %f, %f)' % (long, short, signal),
-      'seed_period': max([long, short, signal])
+      'seed_period': max([long, short, signal]),
+      'cache_size': cache_size
     })
   
   def reset(self):
