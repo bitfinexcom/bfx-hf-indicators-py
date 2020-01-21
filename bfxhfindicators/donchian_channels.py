@@ -34,7 +34,7 @@ class DC(Indicator):
 
     super().update({
       'upper': maxHigh,
-      'middle': (maxHigh + mmaxHigh) / 2,
+      'middle': (maxHigh + minLow) / 2,
       'lower': minLow
     })
     return self.v()
