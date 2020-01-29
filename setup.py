@@ -16,7 +16,7 @@ from io import open
 here = path.abspath(path.dirname(__file__))
 setup(
     name='bfx-hf-indicators',
-    version='1.0.0',
+    version='1.1.0',
     description='Official Bitfinex Indicator Library for Python',
     long_description='A collection of different trading indicators',
     long_description_content_type='text/markdown',
