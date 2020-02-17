@@ -45,7 +45,7 @@ class StdDeviation(Indicator):
 
     if len(self._buffer) > self._p:
       del self._buffer[0]
-    elif len(self._buffer) <= self._p:
+    elif len(self._buffer) < self._p:
       return
 
     super().add(StdDeviation.bufferStdDev(self._buffer, self._p))
